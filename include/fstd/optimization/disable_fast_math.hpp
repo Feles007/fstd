@@ -4,6 +4,4 @@
 	#pragma float_control(pop)
 #elif COMPILER & GCC
 	#pragma GCC pop_options
-#else
-	#error Unsupported compiler!
 #endif
