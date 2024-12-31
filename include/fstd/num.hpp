@@ -1,6 +1,8 @@
 #pragma once
 
+#include <cstddef>
 #include <cstdint>
+#include <type_traits>
 
 using u8  = std::uint8_t;
 using u16 = std::uint16_t;
@@ -12,8 +14,10 @@ using i16 = std::int16_t;
 using i32 = std::int32_t;
 using i64 = std::int64_t;
 
-using usize = std::uintptr_t;
-using isize = std::intptr_t;
+using usize = std::size_t;
+using isize = std::make_signed_t<usize>;
+
+static_assert(sizeof(usize) == sizeof(isize));
 
 using f32 = float;
 using f64 = double;
