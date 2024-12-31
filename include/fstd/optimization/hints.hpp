@@ -10,7 +10,7 @@
 	#if CLANG | GCC
 		#define unreachable() __builtin_unreachable()
 		#define assume(expression) \
-			if (!expression) unreachable()
+			if (!(expression)) unreachable()
 	#elif MSVC
 		#define unreachable()      __assume(false)
 		#define assume(expression) __assume(expression)
@@ -22,7 +22,7 @@
 
 	#define unreachable() report_error("Unreachable code reached")
 	#define assume(expression) \
-		if (!expression) report_error("Assumed condition (" #expression ") was false")
+		if (!(expression)) report_error("Assumed condition (" #expression ") was false")
 
 #endif
 

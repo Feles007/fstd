@@ -8,7 +8,7 @@
 #define report_error(message) unrecoverable_error(message, __FILE__, __LINE__)
 
 #define fassert(expression) \
-	if (!expression) report_error("Assert (" #expression ") failed")
+	if (!(expression)) report_error("Assert (" #expression ") failed")
 
 #if UNSAFE_OPTIMIZATIONS
 	#define debug_fassert(expression) assume(expression)
