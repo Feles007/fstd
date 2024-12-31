@@ -2,8 +2,8 @@
 
 #include "num.hpp"
 #include "optimization/unsafe_optimization.hpp"
+#include <cstdio>
 #include <cstdlib>
-#include <iostream>
 
 #define report_error(message) unrecoverable_error(message, __FILE__, __LINE__)
 
@@ -17,6 +17,6 @@
 #endif
 
 inline void unrecoverable_error(const char *message, const char *file, usize line) {
-	std::cout << message << " - " << file << ':' << line << std::endl;
+	std::printf("%s - %s:%zu\n", message, file, line);
 	std::exit(1);
 }
