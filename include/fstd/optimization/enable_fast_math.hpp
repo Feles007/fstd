@@ -1,6 +1,6 @@
 #include "../platform.hpp"
 
-#if COMPILER & (CLANG | MSVC | INTEL)
+#if COMPILER & (CLANG | MSVC)
 	#pragma float_control(push)
 	#pragma float_control(precise, off)
 	#pragma float_control(except, off)
