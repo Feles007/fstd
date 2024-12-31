@@ -10,14 +10,14 @@
 #define assume(e) \
 	if (!(e)) unreachable()
 
-#if COMPILER & (CLANG | GCC)
+#if CLANG | GCC
 	#define unreachable() __builtin_unreachable()
-#elif COMPILER & MSVC
+#elif MSVC
 	#define unreachable() __assume(false)
 #endif
 
-#if COMPILER & (CLANG | GCC)
+#if CLANG | GCC
 	#define alwaysinline __attribute__((alwaysinline))
-#elif COMPILER & MSVC
+#elif MSVC
 	#define alwaysinline __forceinline
 #endif

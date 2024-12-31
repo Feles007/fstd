@@ -2,8 +2,8 @@
 
 #include "../platform.hpp"
 
-#if COMPILER & (CLANG | GCC)
+#if CLANG | GCC
 	#define noinline __attribute__((noinline))
-#elif COMPILER & MSVC
+#elif MSVC
 	#define noinline __declspec(noinline)
 #endif

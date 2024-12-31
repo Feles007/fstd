@@ -1,15 +1,18 @@
 #pragma once
 
-#define CLANG 1 << 0
-#define MSVC  1 << 1
-#define GCC   1 << 2
+#define CLANG 0
+#define MSVC 0
+#define GCC 0
 
 #if defined(__clang__)
-	#define COMPILER CLANG
+	#undef CLANG
+	#define CLANG 1
 #elif defined(__GNUC__) || defined(__GNUG__)
-	#define COMPILER GCC
+	#undef GCC
+	#define GCC 1
 #elif defined(_MSC_VER)
-	#define COMPILER MSVC
+	#undef MSVC
+	#define MSVC 1
 #else
 	#error Unknown compiler!
 #endif

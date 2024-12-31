@@ -1,7 +1,7 @@
 #include "../platform.hpp"
 
-#if COMPILER & (CLANG | MSVC)
+#if CLANG | MSVC
 	#pragma float_control(pop)
-#elif COMPILER & GCC
+#elif GCC
 	#pragma GCC pop_options
 #endif
