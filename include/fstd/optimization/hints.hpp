@@ -1,9 +1,9 @@
 #pragma once
 
 #include "../platform.hpp"
-#include "../profile.hpp"
+#include "unsafe_optimization.hpp"
 
-#if PROFILE == RELEASE
+#if UNSAFE_OPTIMIZATIONS
 
 	#define restrict __restrict
 
@@ -16,7 +16,7 @@
 		#define assume(expression) __assume(expression)
 	#endif
 
-#elif PROFILE == DEBUG
+#else
 
 	#define restrict
 
