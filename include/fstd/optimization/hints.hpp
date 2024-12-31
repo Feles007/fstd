@@ -4,9 +4,6 @@
 
 #define restrict __restrict
 
-#define likely   [[likely]]
-#define unlikely [[unlikely]]
-
 #define assume(e) \
 	if (!(e)) unreachable()
 
