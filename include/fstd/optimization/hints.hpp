@@ -4,10 +4,11 @@
 
 #define restrict __restrict
 
-#define likely [[likely]]
+#define likely   [[likely]]
 #define unlikely [[unlikely]]
 
-#define assume(e) if (!(e)) unreachable()
+#define assume(e) \
+	if (!(e)) unreachable()
 
 #if COMPILER & (CLANG | GCC | INTEL)
 	#define unreachable() __builtin_unreachable()

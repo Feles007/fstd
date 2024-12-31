@@ -1,9 +1,9 @@
 #pragma once
 
-#define CLANG   1<<0
-#define MSVC    1<<1
-#define GCC     1<<2
-#define INTEL   1<<3
+#define CLANG 1 << 0
+#define MSVC  1 << 1
+#define GCC   1 << 2
+#define INTEL 1 << 3
 
 #if defined(__INTEL_LLVM_COMPILER) || defined(__INTEL_COMPILER)
 	#define COMPILER INTEL

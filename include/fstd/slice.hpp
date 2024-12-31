@@ -4,11 +4,14 @@
 #include <cstring>
 #include <type_traits>
 
-template <typename T> struct Slice;
+template <typename T>
+struct Slice;
 
-template <typename T> using CSlice = Slice<const T>;
+template <typename T>
+using CSlice = Slice<const T>;
 
-template <typename T> struct Slice {
+template <typename T>
+struct Slice {
 	T *data;
 	usize length;
 
@@ -16,7 +19,7 @@ template <typename T> struct Slice {
 
 	Slice() = default;
 	Slice(T *data, usize length) : data(data), length(length) {}
-	Slice(const Slice<NCT> &s) : data(s.data), length(s.length) {}
+	Slice(const Slice<NCT>& s) : data(s.data), length(s.length) {}
 
 	bool starts_with(Slice start) {
 		if (length < start.length) {
@@ -36,10 +39,16 @@ template <typename T> struct Slice {
 		++data;
 		--length;
 	}
-	void shrink_back() { --length; }
+	void shrink_back() {
+		--length;
+	}
 
-	T& operator[](usize i) { return data[i]; }
-	NCT operator[](usize i) const { return data[i]; }
+	T& operator[](usize i) {
+		return data[i];
+	}
+	NCT operator[](usize i) const {
+		return data[i];
+	}
 
 	bool operator==(Slice rhs) {
 		if (length != rhs.length) return false;
@@ -56,6 +65,7 @@ template <typename T> struct Slice {
 	static CSlice<T> from_null_terminated(const char *s);
 };
 
-template <> inline CSlice<u8> CSlice<u8>::from_null_terminated(const char *s) {
+template <>
+inline CSlice<u8> CSlice<u8>::from_null_terminated(const char *s) {
 	return {reinterpret_cast<const u8 *>(s), std::strlen(s)};
 }

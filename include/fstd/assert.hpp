@@ -1,7 +1,7 @@
 #pragma once
 
-#include <iostream>
 #include "num.hpp"
+#include <iostream>
 
 #define fassert(x) ((void)(!(x) && fassert_handler(#x, __FILE__, __LINE__)))
 

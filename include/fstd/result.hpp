@@ -1,6 +1,6 @@
 #pragma once
 
-template<typename Ok, typename Err>
+template <typename Ok, typename Err>
 struct Result {
 	union {
 		Ok ok;

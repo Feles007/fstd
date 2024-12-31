@@ -1,6 +1,7 @@
 #pragma once
 
-template <typename T> struct Option {
+template <typename T>
+struct Option {
 	T value;
 	bool is_some;
 
