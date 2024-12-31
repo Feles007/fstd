@@ -1,8 +1,8 @@
 #pragma once
 
 #define CLANG 0
-#define MSVC 0
-#define GCC 0
+#define MSVC  0
+#define GCC   0
 
 #if defined(__clang__)
 	#undef CLANG
