@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../platform.hpp"
+#include "../core/platform.hpp"
 #include "unsafe_optimization.hpp"
 
 #if UNSAFE_OPTIMIZATIONS

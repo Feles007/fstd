@@ -1,18 +1,18 @@
 #pragma once
 
-#include "error.hpp"
-#include "num.hpp"
-#include "optimization/unsafe_optimization.hpp"
+#include "../core/error.hpp"
+#include "../core/num.hpp"
+#include "../optimization/unsafe_optimization.hpp"
 #include <array>
 #include <cmath>
 #include <immintrin.h>
 #include <initializer_list>
 #include <iostream>
 
-template<usize... indices>
+template <usize... indices>
 struct Swizzle {
 	static constexpr std::array INDICES = {indices...};
-    static constexpr usize SIZE = INDICES.size();
+	static constexpr usize SIZE         = INDICES.size();
 };
 
 #include "vector/swizzles.hpp"
@@ -55,7 +55,8 @@ public:
 			get(i) = T();
 		}
 	}
-	template <typename OtherT, usize OtherN> constexpr Vector(Vector<OtherT, OtherN> const& other) {
+	template <typename OtherT, usize OtherN>
+	constexpr Vector(Vector<OtherT, OtherN> const& other) {
 		// For N <= OtherN, copy over N elements
 		if constexpr (N <= OtherN) {
 			for (usize i = 0; i < N; ++i) {
@@ -113,7 +114,8 @@ public:
 	constexpr T& operator[](usize index) {
 		return get(index);
 	}
-	template <typename Sw> constexpr Vector<T, Sw::SIZE> swizzle() const {
+	template <typename Sw>
+	constexpr Vector<T, Sw::SIZE> swizzle() const {
 		Vector<T, Sw::SIZE> sw{};
 		for (usize i = 0; i < Sw::SIZE; ++i) {
 			sw[i] = get(Sw::INDICES[i]);

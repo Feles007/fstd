@@ -1,7 +1,7 @@
 #pragma once
 
+#include "../optimization/unsafe_optimization.hpp"
 #include "num.hpp"
-#include "optimization/unsafe_optimization.hpp"
 #include <cstdio>
 #include <cstdlib>
 

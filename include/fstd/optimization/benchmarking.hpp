@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../platform.hpp"
+#include "../core/platform.hpp"
 
 #if CLANG | GCC
 	#define noinline __attribute__((noinline))
