@@ -28,6 +28,8 @@
 
 #if CLANG | GCC
 	#define alwaysinline __attribute__((alwaysinline))
+	#define noinline     __attribute__((noinline))
 #elif MSVC
 	#define alwaysinline __forceinline
+	#define noinline     __declspec(noinline)
 #endif
