@@ -1,1 +1,4 @@
 .clangd
+.vscode
+.xmake
+build
