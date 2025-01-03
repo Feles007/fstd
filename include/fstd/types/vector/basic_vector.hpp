@@ -105,7 +105,7 @@ public:
 	constexpr Vector<T, Sw::SIZE> swizzle() const {
 		Vector<T, Sw::SIZE> sw{};
 		for (usize i = 0; i < Sw::SIZE; ++i) {
-			sw[i] = get(Sw::INDICES[i]);
+			sw[i] = get(std::data(Sw::INDICES)[i]);
 		}
 		return sw;
 	}
