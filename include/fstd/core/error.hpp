@@ -16,7 +16,7 @@
 	#define debug_fassert(expression) fassert(expression)
 #endif
 
-inline void unrecoverable_error(const char *message, const char *file, usize line) {
+[[noreturn]] inline void unrecoverable_error(const char *message, const char *file, usize line) {
 	std::printf("%s - %s:%zu\n", message, file, line);
 	std::exit(1);
 }
