@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../optimization/unsafe_optimization.hpp"
 #include "num.hpp"
 #include <cstdio>
 #include <cstdlib>
@@ -10,7 +9,7 @@
 #define fassert(expression) \
 	if (!(expression)) report_error("Assert (" #expression ") failed")
 
-#if UNSAFE_OPTIMIZATIONS
+#ifdef UNSAFE_OPTIMIZATIONS
 	#define debug_fassert(expression) assume(expression)
 #else
 	#define debug_fassert(expression) fassert(expression)

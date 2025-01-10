@@ -2,9 +2,8 @@
 
 #include "../core/platform.hpp"
 #include "../core/error.hpp"
-#include "unsafe_optimization.hpp"
 
-#if UNSAFE_OPTIMIZATIONS
+#ifdef UNSAFE_OPTIMIZATIONS
 
 	#define restrict __restrict
 
