@@ -4,10 +4,10 @@
 #include <cstdio>
 #include <cstdlib>
 
-#define report_error(message) unrecoverable_error(message, __FILE__, __LINE__)
+#define panic(message) unrecoverable_error(message, __FILE__, __LINE__)
 
 #define fassert(expression) \
-	if (!(expression)) report_error("Assert (" #expression ") failed")
+	if (!(expression)) panic("Assert (" #expression ") failed")
 
 #ifdef UNSAFE_OPTIMIZATIONS
 	#define debug_fassert(expression) assume(expression)

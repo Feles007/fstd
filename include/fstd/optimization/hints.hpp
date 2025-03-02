@@ -20,9 +20,9 @@
 
 	#define restrict
 
-	#define unreachable() report_error("Unreachable code reached")
+	#define unreachable() panic("Unreachable code reached")
 	#define assume(expression) \
-		if (!(expression)) report_error("Assumed condition (" #expression ") was false")
+		if (!(expression)) panic("Assumed condition (" #expression ") was false")
 
 #endif
 
